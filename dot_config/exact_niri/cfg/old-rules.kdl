@@ -1,0 +1,38 @@
+
+workspace "Dev"
+window-rule {
+  match app-id=r#"org\.kde\.okular"#
+
+  open-on-workspace "Dev"
+  open-maximized true
+}
+
+workspace "Media"
+window-rule {
+  match app-id=r#"io\.bassi\.Amberol"#
+  match app-id=r#"com\.sayonara-player\.Sayonara"#
+  match app-id="audacious"
+  match app-id="tauonmb"
+
+  open-on-workspace "Media"
+  open-maximized true
+}
+
+window-rule {
+  match app-id=r#"^org\.wezfurlong\.wezterm$"#
+  default-column-width {}
+
+  open-on-workspace "Dev"
+}
+
+layer-rule {
+  match namespace=r#"^wallpaper$"#
+
+  place-within-backdrop true
+}
+
+window-rule {
+  match app-id=r#"^dev.noctalia.noctalia-qs$"#
+
+  open-floating true
+}

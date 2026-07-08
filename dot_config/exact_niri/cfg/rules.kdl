@@ -1,0 +1,73 @@
+
+workspace "Web"
+window-rule {
+  match app-id=r#"^foot$"#
+  match app-id=r#"^helium$"#
+
+  open-on-workspace "Web"
+  open-maximized true
+}
+
+workspace "Dev"
+window-rule {
+  match app-id=r#"^jetbrains-rustrover$"#
+  match app-id=r#"^jetbrains-clion$"#
+  match app-id=r#"ONLYOFFICE"#
+  match app-id=r#"org\.pwmt\.zathura"#
+  match app-id=r#"^Emacs$"#
+
+  open-on-workspace "Dev"
+  open-maximized true
+}
+ 
+workspace "Org"
+window-rule {
+  match app-id="superproductivity-bin"
+
+  open-on-workspace "Org"
+  open-maximized true
+}
+
+workspace "Media"
+
+window-rule {
+  match title=r#"QEMU/KVM$"#
+
+  open-fullscreen true
+}
+
+window-rule {
+  geometry-corner-radius 20
+  clip-to-geometry true
+}
+
+window-rule {
+  match app-id=r#"^oculante$"#
+  match app-id=r#"^tenacity$"#
+  match app-id=r#"^obsidian$"#
+
+  open-maximized true
+}
+
+window-rule {
+  match title="^Picture-in-Picture$"
+
+  default-column-width { fixed 480; }
+  default-window-height { fixed 270; }
+
+  open-floating true
+}
+
+window-rule {
+  // for jetbrains things
+  match title=r#"^New Project$"#
+  match title=r#"^Welcome to CLion$"#
+  match title=r#"^Welcome to RustRover$"#
+
+  match app-id=r#"^foot-scratchpad$"#
+
+  match app-id=r#"Open Folder"#
+  match app-id=r"^neovide$"
+
+  open-floating true
+}

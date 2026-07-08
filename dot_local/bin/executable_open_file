@@ -1,0 +1,45 @@
+#!/bin/fish --no-config
+
+# @vicinae.schemaVersion 1
+# @vicinae.title __open_file
+
+# open selected file in app 
+# 1. Open pdf in okular
+# 2. Open excel or presentation files in only-office
+# 3. Open text format files in nvim
+# 4. Open other files using xdg-open 
+
+set --local file (fd . ~ -tf | vicinae dmenu \
+    --no-footer \
+    --no-metadata \
+    --no-section \
+    --placeholder 'Open file...')
+[ -z "$file" ] && exit 0
+
+set ext "$(path extension "$file")"
+if [ -z "$ext" ]
+  foot --config ~/.config/foot/foot-scratchpad.ini nvim $file &
+  exit 0
+end
+
+switch $ext
+  case .pdf 
+    zathura $file &
+  case .xlsx .ppt
+    onlyoffice-desktopeditors $file &
+  case .mp4 
+    mpv $file &
+  case .mp3 
+    amberol $file &
+  case .md
+    if [ (pgrep --count electron) -eq 0 ]
+      obsidian &
+    end
+
+    obsidian $file &
+exit 0
+  case .log .c .cc .cpp .rs .py .sh .fish .txt .awk .kdl .lua
+    foot --config ~/.config/foot/foot-scratchpad.ini nvim $file &
+  case '*'
+    xdg-open $file &
+end

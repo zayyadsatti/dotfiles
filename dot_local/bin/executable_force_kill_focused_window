@@ -1,0 +1,5 @@
+#!/bin/bash
+
+__to_kill="$(niri msg -j focused-window | jq '.pid' -c)"
+[ -z "$__to_kill" ] && exit 0
+kill -s SIGKILL "$__to_kill"

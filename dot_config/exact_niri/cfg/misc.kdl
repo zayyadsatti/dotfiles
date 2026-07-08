@@ -1,0 +1,42 @@
+
+cursor {
+  xcursor-theme "Bibata-Original-Ice"
+  xcursor-size 23
+}
+
+gestures {
+  hot-corners {
+    off
+  }
+}
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path null
+
+animations {
+  slowdown 0.7
+  window-close {
+    duration-ms 0
+  }
+
+  window-open {
+    duration-ms 0
+  }
+}
+
+overview {
+  zoom 0.6
+}
+
+recent-windows {
+  off
+}
+
+debug {
+  honor-xdg-activation-with-invalid-serial
+}

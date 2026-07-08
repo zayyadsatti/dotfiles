@@ -1,0 +1,3 @@
+(
+  cmdbar_bg: Some(Black),                 // Blue (for high visibility)
+)

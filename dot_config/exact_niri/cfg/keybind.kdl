@@ -1,0 +1,136 @@
+
+binds {
+  Mod+B repeat=false { spawn "helium-browser"; }
+  Mod+Shift+B repeat=false { spawn "helium-browser" "--incognito"; }
+
+  Mod+E repeat=false { spawn "foot" "--config" ".config/foot/foot-scratchpad.ini" "yazi";  }
+  Mod+Shift+E repeat=false { spawn "dolphin"; }
+
+  Mod+T repeat=false { spawn "foot"; }
+  Mod+Shift+T repeat=false { spawn "foot" "--config" ".config/foot/foot-scratchpad.ini";  }
+  Mod+Ctrl+T repeat=false { spawn "neovide"; }
+
+  // TODO: move vicinae related keybinding to other file as in future, i might switch
+  Mod+D { spawn "vicinae" "toggle"; } 
+
+  Mod+Shift+D { spawn "vicinae" "vicinae://launch/wm/switch-windows?toggle=true"; }
+
+  Mod+Space { spawn "vicinae" "vicinae://launch/clipboard/history?toggle=true"; }
+
+  Mod+Semicolon { spawn "vicinae" "vicinae://launch/core/search-emojis?toggle=true"; }
+
+  Mod+Alt+Semicolon { spawn "hyprlock"; }
+
+  // i change volume more often than changing current music
+  Mod+BracketLeft allow-when-locked=true  allow-inhibiting=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; } 
+  Mod+BracketRight  allow-when-locked=true allow-inhibiting=false { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+" "--limit" "1.5"; }
+  Mod+Alt+M allow-when-locked=true allow-inhibiting=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  Mod+Ctrl+M allow-when-locked=true allow-inhibiting=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+  Mod+I allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "play-pause"; }
+  Mod+Shift+I repeat=false { spawn "open_or_focus_music_player"; }
+
+  Mod+Minus allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "previous"; }
+  Mod+Equal allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "next"; }
+
+  Mod+Shift+Minus allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "position" "5-"; }
+  Mod+Shift+Equal allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "position" "5+" ; }
+
+  Mod+O repeat=false { spawn "open_file"; }
+  Mod+Shift+O { spawn "vicinae" "vicinae://launch/@marcjulian/store.raycast.obsidian"; }
+  Mod+Alt+O { spawn "vicinae" "vicinae://launch/@FurkanTRN/store.vicinae.jetbrains-recent-projects/jetbrains-projects"; }
+
+  Mod+U repeat=false { spawn "focus_urgent_and_unset_urgent"; }
+  Mod+Shift+U repeat=false { spawn "toggle_urgent_state_of_focused_window" "--set-urgent" ; }
+  Mod+Alt+U repeat=false { spawn "toggle_urgent_state_of_focused_window" "--unset-urgent" ; }
+
+  Mod+A { spawn "vicinae" "vicinae://launch/@knoopx/store.vicinae.niri/"; }
+
+  Mod+H { focus-column-left; }
+  Mod+J { focus-window-down; }
+  Mod+K { focus-window-up; }
+  Mod+L { focus-column-right; }
+
+  Mod+N { focus-workspace-down; }
+  Mod+P { focus-workspace-up; }
+
+  // As i frequently use just 1-4 workspaces, so it is much easier to press Mod+0 than Mod+1
+  // focusing specific workspaces
+  Mod+0 { focus-workspace "Web"; } 
+  Mod+9 { focus-workspace "Dev"; }
+  Mod+8 { focus-workspace "Org"; }
+  Mod+7 { focus-workspace "Media"; }
+  Mod+6 { focus-workspace 5; }
+  Mod+5 { focus-workspace 6; }
+  Mod+4 { focus-workspace 7; }
+  Mod+3 { focus-workspace 8; }
+  Mod+2 { focus-workspace 9; }
+
+  Mod+Shift+H { move-column-left; }
+  Mod+Shift+J { move-window-down; }
+  Mod+Shift+K { move-window-up; }
+  Mod+Shift+L { move-column-right; }
+
+  Mod+Shift+N { move-column-to-workspace-down; }
+  Mod+Shift+P { move-column-to-workspace-up;  }
+
+  Mod+Shift+0 { move-column-to-workspace "Web"; }
+  Mod+Shift+9 { move-column-to-workspace "Dev"; }
+  Mod+Shift+8 { move-column-to-workspace "Org"; }
+  Mod+Shift+7 { move-column-to-workspace "Media"; }
+  Mod+Shift+6 { move-column-to-workspace 5; }
+  Mod+Shift+5 { move-column-to-workspace 6; }
+  Mod+Shift+4 { move-column-to-workspace 7; }
+  Mod+Shift+3 { move-column-to-workspace 8; }
+  Mod+Shift+2 { move-column-to-workspace 9; }
+
+  Mod+Ctrl+N { move-workspace-down; }
+  Mod+Ctrl+P { move-workspace-up;  }
+
+  Mod+Comma { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
+
+  Mod+R { switch-preset-column-width; }
+  Mod+Shift+R { switch-preset-window-height; }
+  Mod+Ctrl+R { reset-window-height; }
+
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+  Mod+Ctrl+F { expand-column-to-available-width; }
+
+  Mod+C { center-column; }
+  Mod+Shift+C { center-visible-columns; }
+
+  Mod+Alt+H { set-column-width "-10%"; }
+  Mod+Alt+L { set-column-width "+10%"; }
+  Mod+Alt+K { set-window-height "-10%"; }
+  Mod+Alt+J { set-window-height "+10%"; }
+
+  Mod+Ctrl+K { focus-column-first; }
+  Mod+Ctrl+J { focus-column-last; }
+
+  Mod+Ctrl+Shift+K { move-column-to-first; }
+  Mod+Ctrl+Shift+J { move-column-to-last; }
+
+  Mod+BackSpace { focus-window-previous; }
+  Mod+Shift+BackSpace { focus-workspace-previous; }
+
+  Mod+V { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+  Mod+W { toggle-column-tabbed-display; }
+
+  Print { screenshot; }
+  Ctrl+Print { screenshot-screen; }
+  Alt+Print { screenshot-window; }
+
+  // steal focus from apps like virt-manager which all grabs keys
+  Mod+G allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  Mod+Tab repeat=false { toggle-overview; }
+
+  Mod+Q repeat=false { close-window; }
+  Mod+Shift+Q { spawn "force_kill_focused_window"; }
+  Mod+Alt+Q { quit; }
+}
+

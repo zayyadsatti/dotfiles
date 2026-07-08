@@ -1,0 +1,75 @@
+
+{{ $backup_dir := "/mnt/drive/backup_zayyad" }}
+
+{{ $data_dir := "" }}
+{{ if .Env.XDG_DATA_HOME }}
+  {{ $data_dir = printf .Env.XDG_DATA_HOME }}
+{{ else }}
+  {{ $data_dir = printf "%s/.local/share/" .Env.HOME }}
+{{ end }}
+
+{{ $data_dir = printf "%s/resticprofile" $data_dir }}
+
+default:
+  default-command: snapshot
+
+  repository: local:{{ $backup_dir }}
+  password-file: "{{ .ConfigDir  }}/repo_pw_new"
+
+  # todo: maybe using templates...
+  cache-dir: "{{ $data_dir }}/{{ .Profile.Name }}/cache"
+
+  exclude-file:
+    - "{{ .ConfigDir }}/excludes.txt"
+
+  initialize: false
+  run-after-fail: 'notify-send -u critical -p resticprofile "restic failed
+    ($PROFILE_NAME, cmd: $PROFILE_COMMAND). Manual intervation needed"'
+
+  forget:
+    schedule: "Mon,Fri 12:00:00"
+    schedule-permission: user_logged_on
+    schedule-log: {{ $data_dir }}/{{ .Profile.Name }}/log/forget/{{ .Now.Format "2006-01-02-15-04" }}.log
+    keep-daily: 5
+    keep-weekly: 4
+    keep-monthly: 6
+    prune: true
+
+  backup:
+    schedule: "*-*-* 00:00:00"
+    schedule-log: {{ $data_dir }}/{{ .Profile.Name }}/log/backup/{{ .Now.Format "2006-01-02-15-04" }}.log
+    schedule-permission: user_logged_on
+    source-base: "{{ .Env.HOME }}"
+    source:
+      - books
+      - notes
+      - pix
+      - media
+      - dev
+      - dotfiles
+    verbose: 2
+
+remote:
+  inherit: default
+  repository: 's3:https://42eb1f395f3e945e4122099d3c346ae3.r2.cloudflarestorage.com/backup'
+  # not sure if "inherit", inherits directory or template. If later is case, then below is redundant
+  cache-dir: "{{ $data_dir }}/{{ .Profile.Name }}/cache"
+  pack-size: 64
+  env:
+    AWS_ACCESS_KEY_ID: 163ceb2f280ee180dd3337d148c98145
+    AWS_SECRET_ACCESS_KEY: 7af643322e0772dc5ff908e5a16f7a1e5d3dd0ca49e0c9097359a447701ecb25
+  backup:
+    source-base: '{{ .Env.HOME }}'
+    source:
+      - books
+      - notes
+      - pix
+      - media
+      - dev
+      - dotfiles
+  copy:
+    initialize: true
+    snapshot: latest
+    option: s3.connections=3
+    from-password-file: '{{ .ConfigDir  }}/repo_pw_new'
+    from-repository: 'local:{{ $backup_dir }}'

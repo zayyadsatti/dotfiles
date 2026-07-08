@@ -1,0 +1,207 @@
+// This configuration is merged with the default vicinae configuration file, which you can obtain by running the `vicinae config default` command.
+// Every item defined in this file takes precedence over the values defined in the default config or any other imported file.
+//
+// You can make manual edits to this file, however you should keep in mind that this file may be written to by vicinae when a configuration change is made through the GUI.
+// When that happens, any custom comments or formatting will be lost.
+//
+// If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
+//
+// Learn more about configuration at https://docs.vicinae.com/config
+
+{
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "close_on_focus_loss": true,
+   "pop_to_root_on_close": true,
+   "pop_on_backspace": true,
+   "escape_key_behavior": "",
+   "keybinding": "default",
+   "input_server": {
+      "enabled": false
+   },
+   "font": {
+      "rendering": "native",
+      "normal": {
+         "size": 14
+      }
+   },
+   "theme": {
+      "light": {
+         "name": "catppuccin-mocha",
+         "icon_theme": "Bibata-Modern-Ice-Right"
+      }
+   },
+   "telemetry": {
+      "system_info": false
+   },
+   "launcher_window": {
+      "opacity": 0.8,
+      "client_side_decorations": {
+         "enabled": true
+      }
+   },
+   "fallbacks": [
+      "@FurkanTRN/store.vicinae.jetbrains-recent-projects:jetbrains-projects",
+      "files:search"
+   ],
+   "providers": {
+      "@FurkanTRN/store.vicinae.jetbrains-recent-projects": {
+         "entrypoints": {
+            "jetbrains-projects": {
+               "alias": "open_proj"
+            }
+         }
+      },
+      "@marcjulian/store.raycast.obsidian": {
+         "preferences": {
+            "configFileName": ".obsidian",
+            "vaultPath": "/home/zayyad/notes"
+         }
+      },
+      "applications": {
+         "entrypoints": {
+            "jetbrains-clion": {
+               "alias": "cl"
+            },
+            "jetbrains-rustrover": {
+               "alias": "rs"
+            },
+            "music": {
+               "alias": "ms"
+            }
+         }
+      },
+      "browser-extension": {
+         "enabled": false
+      },
+      "calculator": {
+         "entrypoints": {
+            "history": {
+               "alias": "cal_history"
+            }
+         }
+      },
+      "clipboard": {
+         "preferences": {
+            "monitoring": true
+         }
+      },
+      "core": {
+         "entrypoints": {
+            "about": {
+               "enabled": false
+            },
+            "documentation": {
+               "enabled": false
+            },
+            "inspect-local-storage": {
+               "enabled": true
+            },
+            "keybind-settings": {
+               "enabled": false
+            },
+            "list-extensions": {
+               "enabled": false
+            },
+            "manage-fallback": {
+               "enabled": true
+            },
+            "oauth-token-store": {
+               "enabled": false
+            },
+            "open-config-file": {
+               "enabled": false
+            },
+            "open-default-config": {
+               "enabled": false
+            },
+            "prune-memory": {
+               "enabled": false
+            },
+            "refresh-apps": {
+               "enabled": false
+            },
+            "reload-scripts": {
+               "enabled": false
+            },
+            "report-bug": {
+               "enabled": false
+            },
+            "search-builtin-icons": {
+               "enabled": false
+            },
+            "settings": {
+               "enabled": true
+            },
+            "sponsor": {
+               "enabled": false
+            },
+            "store": {
+               "alias": "ext",
+               "enabled": true
+            }
+         }
+      },
+      "developer": {
+         "enabled": false
+      },
+      "files": {
+         "enabled": false,
+         "preferences": {
+            "autoIndexing": false,
+            "excludedPaths": "opt/; ~/.local/; ~/.cache/; ~/.var/",
+            "paths": "/home/zayyad",
+            "watcherPaths": ""
+         }
+      },
+      "font": {
+         "enabled": true,
+         "entrypoints": {
+            "browse": {
+               "alias": "font"
+            }
+         }
+      },
+      "power": {
+         "enabled": true,
+         "entrypoints": {
+            "power-off": {
+               "preferences": {
+                  "confirm": true,
+                  "customProgram": ""
+               }
+            }
+         }
+      },
+      "raycast-compat": {
+         "enabled": true
+      },
+      "scripts": {
+         "preferences": {
+            "customDirs": [
+               "/home/zayyad/dev/active/scripts/bin"
+            ]
+         }
+      },
+      "system": {
+         "enabled": true,
+         "entrypoints": {
+            "browse-apps": {
+               "preferences": {
+                  "showHidden": true,
+                  "sortAlphabetically": false
+               }
+            },
+            "run": {
+               "alias": "!",
+               "enabled": true,
+               "preferences": {
+                  "default-action": "run-in-terminal"
+               }
+            }
+         }
+      },
+      "wm": {
+         "enabled": true
+      }
+   }
+}

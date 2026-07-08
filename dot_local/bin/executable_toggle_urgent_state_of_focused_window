@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ "$#" -eq 0 ]; then
+  echo "Expected <-u|--set-urgent> <-n|--unset-urgent>. Found None" >&2
+  exit 1
+elif [ "$#" -gt 1 ]; then
+  echo "expected max-arguments 1. Found $#" >&2
+  exit 1
+fi
+
+case "$1" in 
+  -u|--set-urgent)
+    CMD="set-window-urgent"
+    ;;
+  -n|--unset-urgent)
+    CMD="unset-window-urgent"
+    ;;
+  *)
+    echo "Unknown expected Argument $1" >&2
+    ;;
+esac
+
+__id_of_focused_window="$(niri msg -j focused-window | jq '.id')"
+[ -z "$__id_of_focused_window" ] && exit 0
+niri msg action "$CMD" --id "$__id_of_focused_window"

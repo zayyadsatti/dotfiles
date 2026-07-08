@@ -1,0 +1,9 @@
+[Unit]
+Description=resticprofile forget for profile default in /home/zayyad/.config/resticprofile/profiles.yaml
+
+[Service]
+Type=notify
+WorkingDirectory=/home/zayyad/.local/share/resticprofile
+ExecStart=/usr/bin/resticprofile --no-prio --no-ansi --config /home/zayyad/.config/resticprofile/profiles.yaml run-schedule forget@default
+Environment="RESTICPROFILE_SCHEDULE_ID=/home/zayyad/.config/resticprofile/profiles.yaml:forget@default"
+Environment="HOME=/home/zayyad"

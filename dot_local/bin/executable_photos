@@ -1,0 +1,10 @@
+#!/bin/fish --no-config
+
+# @vicinae.schemaVersion 1
+# @vicinae.title __photos
+# @vicinae.mode silent
+# @vicinae.argument1 { "type": "text", "placeholder": "person"}
+
+# to get deterministic results
+exec fd $argv[1] ~/pix/photos/ --threads 1 --exec-batch oculante {}
+

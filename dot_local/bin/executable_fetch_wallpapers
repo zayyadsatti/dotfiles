@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# target directory is fixed cause path used in configuration expected
+# wallpapers directory to be there
+TARGET_DIRECTORY="$HOME/pix/wallpapers"
+RCLONE_CONFIG_FILE="$HOME/.config/rclone/rclone.conf"
+
+if ! command -v rclone >/dev/null 2>/dev/null; then
+  echo "rclone not found. Install it first..." >&2
+  exit 1
+fi
+
+RESET="\033[0m"
+RED="\033[31m"
+YELLOW="\033[33m"
+
+abort_with_msg() {
+  echo -e "${RED}[ERROR] ${RESET}$*"
+  exit 1
+}
+
+if ! [ -f "${RCLONE_CONFIG_FILE}" ]; then
+  echo 'Maybe rclone is not configured...' >&2
+  # shellcheck disable=SC2162
+  # exit if timeout
+  ! read -t 5 -N 1 -p 'Do you want to still continue. Press any key to continue: ' && abort_with_msg "Action Aborted..."
+  echo -e '\n'
+fi
+
+echo -e "${YELLOW}[INFO]${RESET} Format is: <REMOTE>:<PATH-TO-WALLPAPER-DIRECTORY>"
+read -r -p 'Enter name of wallpaper_location: ' remote
+while [ -z "$remote" ]; do
+  echo -e "${RED}[ERROR] ${RESET}Enter remote location of wallpapers. Otherwise this script would not work" >&2
+  read -r -p 'Enter name of wallpaper_location: ' remote
+done
+
+[ -d "$TARGET_DIRECTORY" ] && mkdir --parents "$TARGET_DIRECTORY"
+[ "$?" -ne 0 ] && abort_with_msg "Target directory is not writeable. Make sure you have enough permissions"
+echo -e "${YELLOW}[LOG] ${RESET}Started..."
+rclone copy "$remote" "$TARGET_DIRECTORY" --progress

@@ -1,0 +1,8 @@
+[Unit]
+Description=Notify user when it is journal timer and open the journal app
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/daily_journal_setup
+
+

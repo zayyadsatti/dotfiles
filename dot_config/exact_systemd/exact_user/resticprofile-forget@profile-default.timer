@@ -1,0 +1,10 @@
+[Unit]
+Description=forget timer for profile default in /home/zayyad/.config/resticprofile/profiles.yaml
+
+[Timer]
+OnCalendar=Mon,Fri 12:00:00
+Unit=resticprofile-forget@profile-default.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

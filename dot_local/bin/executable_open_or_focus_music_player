@@ -1,0 +1,38 @@
+#!/bin/bash
+
+die() {
+  echo "$@" >&2
+  exit 1
+}
+
+[ "$#" -gt 2 ] && die "expected max arguments 2. Found: $#" 
+
+app_id_of_player="org.strawberrymusicplayer.strawberry"
+execuable_player="strawberry"
+
+while [[ "$#" -gt 0 ]]; do
+  case "$1" in 
+    -e|--executable)
+      [ -z  "$2" ] && die "expected value for $1. Found None"
+      execuable_player="$2"
+      shift 2
+      ;;
+    -a|--app-id)
+      [ -z  "$2" ] && die "expected value for $1. Found None"
+      app_id_of_player="$2"
+      shift 2
+      ;;
+    *)
+      die "unknown argument $1"
+      ;;
+  esac
+done
+
+__id_if_running=$(niri msg -j windows | jq ".[] | select(.app_id == \"$app_id_of_player\").id")
+if [ -z "$__id_if_running" ]; then
+  eval "setsid -- $execuable_player >/dev/null &"
+else
+  niri msg action focus-window --id "$__id_if_running"
+fi
+
+

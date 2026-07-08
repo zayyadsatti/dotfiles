@@ -1,0 +1,7 @@
+#!/bin/bash
+
+__to_focus=$(niri msg -j windows | jq 'first(.[] | select(.is_urgent).id)')
+[ -z "$__to_focus" ] && exit 0
+niri msg action focus-window --id "$__to_focus"
+niri msg action unset-window-urgent --id "$__to_focus"
+

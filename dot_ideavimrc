@@ -1,0 +1,67 @@
+
+let mapleader = " "
+
+set number " show numbering
+set relativenumber " show relative numbering
+set surround
+
+" Searching
+set ignorecase " ignore case
+set smartcase " if use upper case, change to case sensitive
+set hlsearch " highlight search result
+set incsearch " highlight first match as i type
+
+set ideajoin
+set ideamarks
+
+set nerdtree
+set sneak
+set easymotion
+set multiple-cursors
+ 
+let g:WhichKeyDesc_easymotion = "<leader><leader> EasyMotion"
+let g:WhichKey_FontSize = 18
+
+" misc
+set scrolloff=5
+
+set history=500
+
+set highlightedyank
+let g:highlightedyank_highlight_duration = 50
+
+imap jk <Esc>
+
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+nmap <leader>x :x<CR>
+
+map <leader>se :edit ~/.ideavimrc<CR>
+map <leader>sc :source ~/.ideavimrc<CR>
+
+map <leader>ff <Action>(GotoFile)
+map <leader>fs <Action>(FileStructurePopup)
+map <leader>fr <Action>(FindInPath)
+map <leader>fp <Action>(FileChooser.GotoProject)
+map <leader>fc <Action>(ShowReformatFileDialog)
+
+map <leader>gb <Action>(TUILauncher.gitui)
+
+map <leader>ww <Action>(Unsplit)
+map <leader>wa <Action>(UnsplitAll)
+
+nmap <A-k> <Action>(MoveLineUp)
+nmap <A-j> <Action>(MoveLineDown)
+map <A-p> <Action>(EditorDuplicateLines)
+nmap <C-l> :nohl<CR>
+
+nmap <leader>e :NERDTreeFocus<CR>
+
+imap <C-a> <Home>
+imap <C-e> <End>
+imap <C-n> <Down>
+imap <C-p> <Up>
+imap <C-f> <Right>
+imap <C-b> <Left>
+imap <A-p> <Action>(EditorDuplicateLines)
+imap <C-k> <Action>(EditorCutLineEnd)

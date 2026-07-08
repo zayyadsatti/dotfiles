@@ -1,0 +1,73 @@
+[global]
+leave-focus-at = 2
+
+[[workspaces]]
+id = 1
+name = "Browsing"
+windows = [
+  { command = "helium-browser" },
+]
+
+[[workspaces.schedules]]
+name = "Exercise"
+time_ranges = [
+  { start = "07:15", end = "08:00" }
+]
+
+windows = [
+  { command = "exercise" }
+]
+
+[[workspaces]]
+id = 2
+name = "Learning"
+
+[[workspaces.schedules]]
+name = "Math"
+time_ranges = [
+  { start = "08:15", end = "09:45" },
+  { start = "16:30", end = "18:00" },
+]
+windows = [
+  { command = "okular", args = [ "/home/zayyad/books/math/math-11.pdf" ] },
+]
+
+[[workspaces.schedules]]
+name = "English/Computer"
+time_ranges = [
+  { start = "18:30", end = "20:00" }
+]
+
+windows = [
+  { command = "okular", args = [ "/home/zayyad/books/course/computer-11.pdf" ]},
+]
+
+[[workspaces.schedules]]
+name = "Algorithms"
+time_ranges = [
+  { start = "10:15", end = "11:45" },
+]
+
+windows = [
+  { command = "okular", args = ["/home/zayyad/books/dsa/clrs-4th.pdf"] },
+]
+
+[[workspaces.schedules]]
+name = "Networking"
+time_ranges = [
+  { start = "12:30", end = "14:00" },
+  { start = "20:30", end = "22:00" }
+]
+
+windows = [
+  { command = "okular", args = ["/home/zayyad/books/c/unp.pdf"] },
+  { command = "clion", args = ["/home/zayyad/dev/lab/c++/unp-c"] },
+]
+
+[[workspaces]]
+id = 3
+name = "Tasks"
+
+windows = [
+  { command = "superproductivity" },
+]

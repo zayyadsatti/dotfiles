@@ -1,0 +1,32 @@
+# the dot directories are explicity ignored for case in which --hidden 
+# is used
+
+.andriod/
+bin/
+build/
+.cache/
+.cargo/
+cmake-build-*/
+.config/
+!dotfiles/**/.config
+!dev/**/bin
+.git/
+.golang/
+.icons/
+.java/
+JetBrains/
+jetbrains-toolbox*/
+.local/
+.npm/
+.pki/
+release/
+rustrover/
+.rustup/
+target/
+.var/
+opt/
+*.gcm
+*.a
+*.o
+vcpkg/
+

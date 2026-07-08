@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# also notifiy the user when it is journal time
+notify-send --urgency normal --app-name "Journal Reminder" "Time's Up. Start the Journal"
+
+# open obsidian with daily note open
+vicinae vicinae://launch/@marcjulian/store.raycast.obsidian/dailyNoteCommand
+

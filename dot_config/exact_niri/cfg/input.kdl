@@ -1,0 +1,20 @@
+
+input {
+  keyboard {
+    repeat-rate 50
+    repeat-delay 400
+  }
+
+  touchpad {
+    off
+  }
+
+  mouse {
+  }
+
+  trackpoint {
+    off
+  }
+  workspace-auto-back-and-forth
+}
+

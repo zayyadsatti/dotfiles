@@ -1,0 +1,9 @@
+[Unit]
+Description=resticprofile backup for profile default in /home/zayyad/.config/resticprofile/profiles.yaml
+
+[Service]
+Type=notify
+WorkingDirectory=/home/zayyad/.local/share/resticprofile
+ExecStart=/usr/bin/resticprofile --no-prio --no-ansi --config /home/zayyad/.config/resticprofile/profiles.yaml run-schedule backup@default
+Environment="RESTICPROFILE_SCHEDULE_ID=/home/zayyad/.config/resticprofile/profiles.yaml:backup@default"
+Environment="HOME=/home/zayyad"

@@ -1,0 +1,65 @@
+[bar.default]
+capsule = true
+start = [ "taskbar", "media" ]
+center = [ "date", "workspaces", "clock", "weather" ]
+end = [ 
+  "network", 
+  "bluetooth",
+  "volume",
+  "brightness", 
+  "wifi-download",
+  "wifi-upload",
+  "cpu",
+  "notifications"
+]
+font_family = "Noto Sans"
+font_weight = 400
+margin_edge = 1
+margin_ends = 10
+radius = 80
+thickness = 30
+widget_spacing = 9
+
+[brightness]
+enable_ddcutil = true
+
+[notification]
+filter_order = [ "filter" ]
+layer = "overlay"
+position = "top_center"
+
+[audio]
+enable_sounds = true
+
+[wallpaper]
+directory = "/home/zayyad/pix/wallpapers"
+transition = [ "disc" ]
+transition_duration = 100
+
+[shell]
+app_icon_colorize = false
+clipboard_enabled = false
+font_family = "Noto Sans"
+polkit_agent = true
+
+[shell.animation]
+enabled = false
+
+[shell.panel]
+borders = false
+shadow = false
+transparency_mode = "soft"
+wallpaper_placement = "floating"
+wallpaper_position = "center"
+
+[shell.screenshot]
+save_to_file = false
+
+[theme]
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+[theme.templates]
+builtin_ids = [ "gtk3", "gtk4", "niri", "qt" ]
+
+

@@ -1,0 +1,50 @@
+
+layout {
+  gaps 16 
+
+  center-focused-column "never"
+
+  preset-column-widths {
+    proportion 0.34
+    proportion 0.5
+    proportion 0.67
+    proportion 1.0
+  }
+
+  preset-window-heights {
+    proportion 0.34
+    proportion 0.5
+    proportion 0.67
+    proportion 1.0
+  }
+
+  default-column-width { proportion 0.5; }
+
+  background-color "transparent"
+  focus-ring {
+    off
+  }
+
+  border {
+    off
+  }
+
+  shadow {
+    on
+
+    draw-behind-window true
+    softness 100
+    spread 50
+    offset x=50 y=25
+    color "#0009"
+  }
+
+  struts {
+  }
+
+  tab-indicator {
+    hide-when-single-tab
+    position "top"
+  }
+}
+

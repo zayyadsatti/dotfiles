@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for journal-notify.timer
+
+[Timer]
+OnCalendar=*-*-* 22:30
+Unit=journal-notify.timer
+Persistent=true
+
+[Install]
+WantedBy=timers.target
