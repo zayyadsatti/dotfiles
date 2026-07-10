@@ -2,10 +2,12 @@
 binds {
   Mod+M { spawn "noctalia" "msg" "bar-toggle"; }
   Mod+Y { spawn "noctalia" "msg" "panel-toggle" "wallpaper"; }
-  Mod+apostrophe { spawn "noctalia" "msg" "notification-clear-active"; }
 
   Mod+Shift+BracketLeft { spawn "noctalia" "msg" "brightness-down"; }
   Mod+Shift+BracketRight { spawn "noctalia" "msg" "brightness-up"; }
+
+	Mod+apostrophe { spawn "noctalia" "msg" "notification-clear-active"; }
+	Mod+shift+apostrophe  { spawn "noctalia" "msg" "notification-dnd-toggle"; }
 }
 
 layer-rule {
