@@ -1,45 +1,46 @@
-#!/bin/fish --no-config
+#!/bin/bash
 
 # @vicinae.schemaVersion 1
 # @vicinae.title __open_file
 
-# open selected file in app 
-# 1. Open pdf in okular
+# open selected file in app
+# 1. Open pdf in zathura
 # 2. Open excel or presentation files in only-office
-# 3. Open text format files in nvim
-# 4. Open other files using xdg-open 
+# 3. Open other files neovim
+# todo: maybe use xdg-mime
 
-set --local file (fd . ~ -tf | vicinae dmenu \
+selected_file="$(fd . ~ -tf | vicinae dmenu \
     --no-footer \
     --no-metadata \
     --no-section \
-    --placeholder 'Open file...')
-[ -z "$file" ] && exit 0
+    --placeholder 'Open file...')"
+[ -z "$selected_file" ] && exit 0
 
-set ext "$(path extension "$file")"
-if [ -z "$ext" ]
-  foot --config ~/.config/foot/foot-scratchpad.ini nvim $file &
-  exit 0
-end
+basename="${selected_file##*/}"
+extension="${basename##*.}"
 
-switch $ext
-  case .pdf 
-    zathura $file &
-  case .xlsx .ppt
-    onlyoffice-desktopeditors $file &
-  case .mp4 
-    mpv $file &
-  case .mp3 
-    amberol $file &
-  case .md
-    if [ (pgrep --count electron) -eq 0 ]
-      obsidian &
-    end
+pdf_viewer="zathura"
+excel_and_powerpoint_viewer="onlyoffice-desktopeditors"
+video_file_player="mpv"
+audio_file_player="amberol"
+fallback_program="neovide"
 
-    obsidian $file &
-exit 0
-  case .log .c .cc .cpp .rs .py .sh .fish .txt .awk .kdl .lua
-    foot --config ~/.config/foot/foot-scratchpad.ini nvim $file &
-  case '*'
-    xdg-open $file &
-end
+case "$extension" in
+  pdf)
+    appropriate_program="$pdf_viewer"
+    ;;
+  xlsx|pptx|ppsx)
+    appropriate_program=$excel_and_powerpoint_viewer
+    ;;
+  mp4)
+    appropriate_program="$video_file_player"
+    ;;
+  mp3)
+    appropriate_program="$audio_file_player"
+    ;;
+  *)
+    appropriate_program="$fallback_program"
+    ;;
+esac
+
+exec "$appropriate_program" "$selected_file"
