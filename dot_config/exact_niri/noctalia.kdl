@@ -14,38 +14,3 @@ layer-rule {
   match namespace="^noctalia-wallpaper$"
   place-within-backdrop true
 }
-
-layout {
-  focus-ring {
-    active-color   "#99ccfa"
-    inactive-color "#101418"
-    urgent-color   "#ffb4ab"
-  }
-
-  border {
-    active-color   "#99ccfa"
-    inactive-color "#101418"
-    urgent-color   "#ffb4ab"
-  }
-
-  shadow {
-    color "#00000070"
-  }
-
-  tab-indicator {
-    active-color   "#99ccfa"
-    inactive-color "#084b72"
-    urgent-color   "#ffb4ab"
-  }
-
-  insert-hint {
-    color "#99ccfa80"
-  }
-}
-
-recent-windows {
-  highlight {
-    active-color "#99ccfa"
-    urgent-color "#ffb4ab"
-  }
-}
