@@ -29,6 +29,11 @@ window-rule {
 }
 
 workspace "Media"
+window-rule {
+  match app-id="^org.strawberrymusicplayer.strawberry$"
+  open-on-workspace "Media"
+  open-maximized true
+}
 
 window-rule {
   match title=r#"QEMU/KVM$"#
