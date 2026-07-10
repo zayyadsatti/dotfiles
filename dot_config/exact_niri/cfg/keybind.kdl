@@ -117,6 +117,8 @@ binds {
 
   Mod+V { toggle-window-floating; }
   Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+	Mod+Ctrl+V { move-window-to-floating; }
+	Mod+Alt+V { move-window-to-tiling; }
 
   Mod+W { toggle-column-tabbed-display; }
 
