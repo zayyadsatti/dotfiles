@@ -1,0 +1,4 @@
+set recolor true
+set guioptions ""
+
+map <C-g> toggle_statusbar

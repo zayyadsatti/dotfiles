@@ -22,6 +22,7 @@ packages=(
   "bat"
   "fd"
   "foot"
+  "zathura"
   "gitui"
   "hyprlock"
   "niri"
