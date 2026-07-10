@@ -28,7 +28,7 @@ binds {
   Mod+Ctrl+M allow-when-locked=true allow-inhibiting=false { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
   Mod+I allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "play-pause"; }
-  Mod+Shift+I repeat=false { spawn "open_or_focus_music_player"; }
+  Mod+Shift+I repeat=false { spawn "open-or-focus-music-player"; }
 
   Mod+Minus allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "previous"; }
   Mod+Equal allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "next"; }
@@ -36,13 +36,13 @@ binds {
   Mod+Shift+Minus allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "position" "5-"; }
   Mod+Shift+Equal allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "position" "5+" ; }
 
-  Mod+O repeat=false { spawn "open_file"; }
+  Mod+O repeat=false { spawn "open-file"; }
   Mod+Shift+O { spawn "vicinae" "vicinae://launch/@marcjulian/store.raycast.obsidian"; }
   Mod+Alt+O { spawn "vicinae" "vicinae://launch/@FurkanTRN/store.vicinae.jetbrains-recent-projects/jetbrains-projects"; }
 
-  Mod+U repeat=false { spawn "focus_urgent_and_unset_urgent"; }
-  Mod+Shift+U repeat=false { spawn "toggle_urgent_state_of_focused_window" "--set-urgent" ; }
-  Mod+Alt+U repeat=false { spawn "toggle_urgent_state_of_focused_window" "--unset-urgent" ; }
+  Mod+U repeat=false { spawn "focus-urgent-and-unset-urgent"; }
+  Mod+Shift+U repeat=false { spawn "toggle-urgent-state-of-focused-window" "--set-urgent" ; }
+  Mod+Alt+U repeat=false { spawn "toggle-urgent-state-of-focused-window" "--unset-urgent" ; }
 
   Mod+A { spawn "vicinae" "vicinae://launch/@knoopx/store.vicinae.niri/"; }
 
@@ -130,7 +130,7 @@ binds {
   Mod+Tab repeat=false { toggle-overview; }
 
   Mod+Q repeat=false { close-window; }
-  Mod+Shift+Q { spawn "force_kill_focused_window"; }
+  Mod+Shift+Q { spawn "force-kill-focused-window"; }
   Mod+Alt+Q { quit; }
 }
 
