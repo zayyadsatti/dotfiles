@@ -9,8 +9,15 @@ function mkcd
   mkdir "$argv[1]" && cd "$argv[1]"
 end
 
-function replace 
-  wl-paste | $argv | wl-copy
+function replace
+	set __num_args "$(count $argv)"
+	if test "$__num_args" -ne 2
+		echo "Extra Arguments. Expected 2 found $__num_args" >&2
+		echo "Usage: <TO_MATCH> <TO_REPLACE>" >&2
+		return 1
+	end
+
+  wl-paste | string replace --all --regex -- "$argv[1]" "$argv[2]" | wl-copy
 end
 
 function copy
