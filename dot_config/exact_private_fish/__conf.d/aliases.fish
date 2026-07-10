@@ -21,7 +21,7 @@ abbr --add ls. find . -maxdepth 1 -mindepth 1 ! -type d -name '".*"' -exec eza -
 abbr --add mv 'mv -v'
 abbr --add cp 'cp -v'
 abbr --add rm 'rm -v'
-abbr --add rmdir 'rmdir -v'
+abbr --add rmd 'rmdir -v'
 
 abbr --add cat 'bat -P'
 
