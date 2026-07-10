@@ -10,15 +10,6 @@ binds {
   Mod+Shift+T repeat=false { spawn "foot" "--config" ".config/foot/foot-scratchpad.ini";  }
   Mod+Ctrl+T repeat=false { spawn "neovide"; }
 
-  // TODO: move vicinae related keybinding to other file as in future, i might switch
-  Mod+D { spawn "vicinae" "toggle"; } 
-
-  Mod+Shift+D { spawn "vicinae" "vicinae://launch/wm/switch-windows?toggle=true"; }
-
-  Mod+Space { spawn "vicinae" "vicinae://launch/clipboard/history?toggle=true"; }
-
-  Mod+Semicolon { spawn "vicinae" "vicinae://launch/core/search-emojis?toggle=true"; }
-
   Mod+Alt+Semicolon { spawn "hyprlock"; }
 
   // i change volume more often than changing current music
@@ -37,14 +28,10 @@ binds {
   Mod+Shift+Equal allow-when-locked=true repeat=false allow-inhibiting=false { spawn "playerctl" "position" "5+" ; }
 
   Mod+O repeat=false { spawn "open-file"; }
-  Mod+Shift+O { spawn "vicinae" "vicinae://launch/@marcjulian/store.raycast.obsidian"; }
-  Mod+Alt+O { spawn "vicinae" "vicinae://launch/@FurkanTRN/store.vicinae.jetbrains-recent-projects/jetbrains-projects"; }
 
   Mod+U repeat=false { spawn "focus-urgent-and-unset-urgent"; }
   Mod+Shift+U repeat=false { spawn "toggle-urgent-state-of-focused-window" "--set-urgent" ; }
   Mod+Alt+U repeat=false { spawn "toggle-urgent-state-of-focused-window" "--unset-urgent" ; }
-
-  Mod+A { spawn "vicinae" "vicinae://launch/@knoopx/store.vicinae.niri/"; }
 
   Mod+H { focus-column-left; }
   Mod+J { focus-window-down; }
@@ -136,3 +123,4 @@ binds {
   Mod+Alt+Q { quit; }
 }
 
+include "vicinae-keybind.kdl"

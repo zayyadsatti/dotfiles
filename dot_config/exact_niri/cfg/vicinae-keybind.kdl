@@ -1,0 +1,12 @@
+binds {
+	Mod+D { spawn "vicinae" "toggle"; }
+	Mod+Shift+D { spawn "vicinae" "vicinae://launch/wm/switch-windows?toggle=true"; }
+
+	Mod+Space { spawn "vicinae" "vicinae://launch/clipboard/history?toggle=true" ; }
+  Mod+SemiColon { spawn "vicinae" "vicinae://launch/core/search-emojis?toggle=true"; }
+
+	Mod+Shift+O { spawn "vicinae" "vicinae://launch/@marcjulian/store.raycast.obsidian"; }
+	Mod+Alt+O { spawn "vicinae" "vicinae://launch/@FurkanTRN/store.vicinae.jetbrains-recent-projects/jetbrains-projects"; }
+
+	Mod+A { spawn "vicinae" "vicinae://launch/@knoopx/store.vicinae.niri/"; }
+}
