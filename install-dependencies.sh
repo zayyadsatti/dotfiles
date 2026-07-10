@@ -37,6 +37,7 @@ packages=(
   "yazi"
   "zellij"
   "noctalia"
+  "xdg-desktop-portal-kde"
 )
 
 is_command_found() { command -v "$1" >/dev/null 2>/dev/null; }
